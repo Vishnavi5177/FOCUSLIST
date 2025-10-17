@@ -1,20 +1,40 @@
-import FocusList from "./Components/FocusList";
 import Focusform from "./Components/Focusform";
+import FocusList from "./Components/FocusList";
 import Progresstracker from "./Components/Progresstracker";
+import { useEffect, useState } from "react";
+import "./Style.css";
 
+export default function App() {
+  const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  });
 
-function App() {
+  const addTask = (task) => {
+    setTasks([...tasks,task]);
+  }
+
+  const updateTask = (updatedTask, index) => {
+    const newtask = [...tasks];
+     newtask[index] = updatedTask;
+    setTasks(newtask);
+  }
+
+  const deleteTask = (index) => {
+      setTasks(tasks.filter((_, i) => i != index));
+  }
+
   return(
     <div>
-      <h1>FocusList</h1>
-      <p>Stay organized, boost productivity, and focus on what truly matters</p>
-      <Focusform />
-      <FocusList />
-      <Progresstracker />
+      <h1>Task Focus</h1>
+      <p>Our friendly TaskManager</p>
+      <Focusform addTask = {addTask}/>
+      <FocusList tasks = {tasks} 
+      updateTask = {updateTask}
+      deleteTask = {deleteTask}/>
+      <Progresstracker tasks = {tasks}/>
       <button>Clear all tasks</button>
     </div>
   )
 }
-
-export default App;
