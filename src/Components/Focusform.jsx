@@ -17,12 +17,12 @@ export default function Focusform({addTask}) {
 
     return(
         <form onSubmit={handlesubmit}>
+            <p>
             <div>
                 <input type="text" placeholder="Enter the task" 
                 value={task}
                 onChange={(e) => setTask(e.target.value)}/>
                 <button type="submit">Add Task</button>
-                <h1>{task} {priority} {category}</h1>
             </div>
 
             <div>
@@ -37,7 +37,8 @@ export default function Focusform({addTask}) {
                     <option value="work">work</option>
                     <option value="personal">Personal</option>
                 </select>
-            </div>
+                </div>
+            </p>
         </form>
     )
 }

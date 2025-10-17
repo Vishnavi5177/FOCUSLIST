@@ -28,7 +28,7 @@ export default function App() {
   return(
     <div>
       <h1>Task Focus</h1>
-      <p>Our friendly TaskManager</p>
+      <p>Stay organized, boost productivity, and focus on what truly matters</p>
       <Focusform addTask = {addTask}/>
       <FocusList tasks = {tasks} 
       updateTask = {updateTask}
