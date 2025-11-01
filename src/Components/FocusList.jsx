@@ -5,9 +5,9 @@ export default function FocusList({tasks , updateTask, deleteTask}) {
         updateTask(updatedTask, index);
     }
   return (
-    <ul>
+    <ul className="focus-list">
       {tasks.map((task, index)=> (
-        <li key={index}>
+        <li key={index} className={task.completed ? "completed" : ""}>
           <div>
             <span>{task.text}
               <small>({task.priority} , {task.category})</small>

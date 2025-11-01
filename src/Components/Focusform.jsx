@@ -7,25 +7,28 @@ export default function Focusform({addTask}) {
 
     const handlesubmit = (e) => {
         e.preventDefault(); //refresh
+        if(task.trim()) {
+        //If the task is not empty, add it
         addTask({text: task, priority, category, completed: false});
 
         //reset
         setTask('');
         setPriority('medium');
         setCategory('general');
-    }
+        }
+    };
 
     return(
-        <form onSubmit={handlesubmit}>
-            <p>
-            <div>
-                <input type="text" placeholder="Enter the task" 
+        <form onSubmit={handlesubmit} className="focus-form">
+            <div id="inp">
+                <input type="text" 
+                placeholder="Enter the task" 
                 value={task}
                 onChange={(e) => setTask(e.target.value)}/>
                 <button type="submit">Add Task</button>
             </div>
 
-            <div>
+            <div id="btns">
                 <select value={priority} onChange={(e) => setPriority(e.target.value)}>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
@@ -38,7 +41,7 @@ export default function Focusform({addTask}) {
                     <option value="personal">Personal</option>
                 </select>
                 </div>
-            </p>
+         
         </form>
     )
 }
