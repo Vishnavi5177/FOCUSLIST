@@ -1,5 +1,5 @@
 import Focusform from "./Components/Focusform";
-import FocusList from "./Components/FocusList";
+import Focuslist from "./Components/FocusList";
 import Progresstracker from "./Components/Progresstracker";
 import { useEffect, useState } from "react";
 import "./Style.css";
@@ -37,7 +37,7 @@ export default function App() {
       <p className="tagline">Stay organized, boost productivity, and focus on what truly matters</p>
       </header>
       <Focusform addTask = {addTask}/>
-      <FocusList tasks = {tasks} 
+      <Focuslist tasks = {tasks} 
       updateTask = {updateTask}
       deleteTask = {deleteTask}/>
       <Progresstracker tasks = {tasks}/>
